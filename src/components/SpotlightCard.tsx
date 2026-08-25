@@ -10,7 +10,7 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = '',
-  spotlightColor = 'rgba(0, 229, 255, 0.15)',
+  spotlightColor = 'rgba(22, 137, 199, 0.08)',
   tiltEffect = true,
   ...props
 }) => {
@@ -30,9 +30,9 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
     if (tiltEffect) {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -6; // Max -6 to 6 deg
-      const rotateY = ((x - centerX) / centerX) * 6;
-      setTransform(`perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`);
+      const rotateX = ((y - centerY) / centerY) * -3; // Max -3 to 3 deg
+      const rotateY = ((x - centerX) / centerX) * 3;
+      setTransform(`perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.005, 1.005, 1.005)`);
     }
   };
 
@@ -57,7 +57,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
         transform: transform,
         transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease',
       }}
-      className={`relative overflow-hidden rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 hover:border-cyan-500/40 shadow-xl transition-colors duration-300 ${className}`}
+      className={`relative overflow-hidden rounded-2xl bg-white border border-[#D5E5EC] hover:border-[#1689C7]/40 shadow-none hover:shadow-xs transition-all duration-300 ${className}`}
       {...props}
     >
       {/* Radial Spotlight Glow following cursor */}
@@ -74,3 +74,6 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
     </div>
   );
 };
+
+
+

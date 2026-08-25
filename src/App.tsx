@@ -22,7 +22,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-indigo-500 selection:text-white flex flex-col justify-between overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#FAF8F2] text-[#123B5D] font-sans selection:bg-[#1689C7] selection:text-white flex flex-col justify-between overflow-x-hidden">
       
       {/* Animated Light Strips Background Layer */}
       <LightStripsBackground />

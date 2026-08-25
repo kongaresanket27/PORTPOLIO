@@ -2,22 +2,34 @@
 
 @layer base {
   :root {
-    --font-heading: 'Satoshi', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-    --font-mono: 'Geist Mono', 'SF Mono', Consolas, monospace;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    
+    --color-main-text: #123B5D;
+    --color-primary-accent: #1689C7;
+    --color-sky-cyan: #39BDEB;
+    --color-soft-cyan: #DDF4FA;
+    --color-secondary-accent: #55BFA3;
+    --color-highlight: #E6A23C;
+    --color-background: #FAF8F2;
+    --color-cards: #FFFFFF;
+    --color-borders: #D5E5EC;
+    --color-muted-text: #647C91;
   }
   
   body {
     font-family: var(--font-sans);
-    background-color: #050816;
-    color: #f1f5f9;
+    background-color: #FAF8F2;
+    color: #123B5D;
     overflow-x: hidden;
-    letter-spacing: -0.011em;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, .font-heading {
     font-family: var(--font-heading);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
+    color: #123B5D;
   }
 
   code, pre, .font-mono {
@@ -25,172 +37,58 @@
   }
 }
 
-/* Glassmorphism & Silicon Valley High-End Utilities */
+/* Surfaces & Subtle Borders */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #D5E5EC;
+  box-shadow: 0 1px 3px 0 rgba(18, 59, 93, 0.04);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #FFFFFF;
+  border: 1px solid #D5E5EC;
+  box-shadow: 0 1px 2px 0 rgba(18, 59, 93, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 20px 40px -15px rgba(0, 229, 255, 0.15), 0 0 30px 0 rgba(108, 99, 255, 0.1);
-  transform: translateY(-4px);
+  background: #FFFFFF;
+  border-color: rgba(22, 137, 199, 0.45);
+  box-shadow: 0 4px 14px -2px rgba(22, 137, 199, 0.12);
+  transform: translateY(-2px);
 }
 
-.glow-button {
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glow-button::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #6C63FF, #00E5FF, #8B5CF6);
-  opacity: 0;
-  filter: blur(12px);
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.glow-button:hover::before {
-  opacity: 0.8;
-}
-
-/* Animations */
-@keyframes lightStripDown {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh);
-    opacity: 0;
-  }
-}
-
-@keyframes diagonalBeamFlow {
-  0% {
-    transform: translateY(-120%);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.95;
-  }
-  80% {
-    opacity: 0.95;
-  }
-  100% {
-    transform: translateY(160%);
-    opacity: 0;
-  }
-}
-
-@keyframes laserHorizontalPulse {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100vw);
-    opacity: 0;
-  }
-}
-
-@keyframes auroraFloat {
+/* Ambient Subtle Soft Glow Animation */
+@keyframes softGlowFlow {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
+    opacity: 0.4;
   }
-  33% {
-    transform: translate(40px, -50px) scale(1.15);
-  }
-  66% {
-    transform: translate(-30px, 30px) scale(0.9);
-  }
-}
-
-@keyframes particleRising {
-  0% {
-    transform: translateY(100vh) scale(0.5);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.9;
-  }
-  80% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(-10vh) scale(1.2);
-    opacity: 0;
+  50% {
+    transform: translate(12px, -8px) scale(1.03);
+    opacity: 0.65;
   }
 }
 
-@keyframes borderRotate {
-  0% {
-    border-image-source: linear-gradient(0deg, #6C63FF, #00E5FF, #8B5CF6);
-  }
-  100% {
-    border-image-source: linear-gradient(360deg, #6C63FF, #00E5FF, #8B5CF6);
-  }
+.animate-soft-glow {
+  animation: softGlowFlow 14s ease-in-out infinite;
 }
 
-.animate-light-strip-down {
-  animation: lightStripDown 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.animate-diagonal-beam {
-  animation: diagonalBeamFlow 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.animate-laser-horizontal {
-  animation: laserHorizontalPulse 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.animate-aurora {
-  animation: auroraFloat 14s ease-in-out infinite;
-}
-
-.animate-particle-rising {
-  animation: particleRising 15s linear infinite;
-}
-
-/* Custom Scrollbar */
+/* Custom Clean Scrollbar for Warm Cream */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #050816;
+  background: #FAF8F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #D5E5EC;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #647C91;
 }
+
+

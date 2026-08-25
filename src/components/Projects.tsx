@@ -13,10 +13,10 @@ export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filterOptions = [
-    { id: 'all', label: 'All Software & Hardware' },
+    { id: 'all', label: 'All Projects' },
     { id: 'software', label: 'Software & Web' },
-    { id: 'iot', label: 'IoT & Hardware' },
-    { id: 'data', label: 'Data & BI' },
+    { id: 'iot', label: 'IoT & Embedded' },
+    { id: 'data', label: 'Data & Analytics' },
   ];
 
   const filteredProjects = projects.filter((p) => {
@@ -44,27 +44,27 @@ export const Projects: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
-            <FolderGit2 className="w-3.5 h-3.5" />
-            <span>Silicon Valley Engineered Work</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#DDF4FA] border border-[#1689C7]/20 text-[#1689C7] text-xs font-semibold tracking-wider uppercase backdrop-blur-md">
+            <FolderGit2 className="w-3.5 h-3.5 text-[#1689C7]" />
+            <span>Engineered Portfolio Projects</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
-            Featured <span className="bg-gradient-to-r from-[#00E5FF] via-[#6C63FF] to-[#8B5CF6] bg-clip-text text-transparent">Projects & BI Dashboards</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#123B5D] tracking-tight font-heading">
+            Featured <span className="text-[#1689C7]">Projects & BI Dashboards</span>
           </h2>
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          <p className="text-[#647C91] text-xs sm:text-sm leading-relaxed">
             Real-world applications spanning agricultural software (AgroFam), Java multithreaded auction engines, Core Java & SQL asset management, IoT sensor hardware arrays, and live Power BI business intelligence storyboards.
           </p>
         </div>
 
         {/* View Mode Sub-Tabs */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex p-1.5 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-2xl">
+          <div className="inline-flex p-1.5 rounded-2xl bg-white/90 backdrop-blur-xl border border-[#D5E5EC] shadow-none">
             <button
               onClick={() => setViewMode('projects')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
                 viewMode === 'projects'
-                  ? 'bg-gradient-to-r from-[#6C63FF] to-[#00E5FF] text-slate-950 shadow-lg shadow-cyan-500/20'
-                  : 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
+                  ? 'bg-[#1689C7] text-white shadow-none'
+                  : 'text-[#647C91] hover:text-[#123B5D] hover:bg-[#DDF4FA]/50'
               }`}
             >
               <FolderGit2 className="w-4 h-4" />
@@ -73,10 +73,10 @@ export const Projects: React.FC = () => {
 
             <button
               onClick={() => setViewMode('bi')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
                 viewMode === 'bi'
-                  ? 'bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] text-slate-950 shadow-lg shadow-cyan-500/20'
-                  : 'text-slate-300 hover:text-white hover:bg-white/[0.06]'
+                  ? 'bg-[#1689C7] text-white shadow-none'
+                  : 'text-[#647C91] hover:text-[#123B5D] hover:bg-[#DDF4FA]/50'
               }`}
             >
               <BarChart3 className="w-4 h-4" />
@@ -96,8 +96,8 @@ export const Projects: React.FC = () => {
                   onClick={() => setActiveFilter(option.id as any)}
                   className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
                     activeFilter === option.id
-                      ? 'bg-cyan-400 text-slate-950 font-bold shadow-md shadow-cyan-400/20'
-                      : 'bg-white/[0.04] text-slate-300 hover:text-white hover:bg-white/[0.08] border border-white/10'
+                      ? 'bg-[#1689C7] text-white font-bold shadow-none'
+                      : 'bg-white text-[#647C91] hover:text-[#123B5D] hover:bg-[#DDF4FA]/50 border border-[#D5E5EC] shadow-none'
                   }`}
                 >
                   {option.label}
@@ -113,25 +113,25 @@ export const Projects: React.FC = () => {
                 return (
                   <motion.div
                     key={project.id}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    transition={{ duration: 0.4, delay: index * 0.06 }}
                   >
-                    <SpotlightCard className="p-6 h-full flex flex-col justify-between border-white/10 hover:border-cyan-400/50">
+                    <SpotlightCard className="p-6 h-full flex flex-col justify-between border-[#D5E5EC] hover:border-[#1689C7]/40 shadow-none bg-white">
                       <div className="space-y-4">
                         
                         {/* Category Badge & Icon */}
                         <div className="flex items-center justify-between">
-                          <div className="p-3 rounded-xl bg-white/[0.06] border border-white/10 text-cyan-300 shadow-md">
+                          <div className="p-3 rounded-xl bg-[#DDF4FA] border border-[#1689C7]/20 text-[#1689C7] shadow-none">
                             <Icon className="w-6 h-6" />
                           </div>
                           <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
                             project.category === 'software'
-                              ? 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40'
+                              ? 'bg-[#DDF4FA] text-[#1689C7] border-[#1689C7]/20'
                               : project.category === 'iot'
-                              ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
-                              : 'bg-purple-500/20 text-purple-300 border-purple-500/40'
+                              ? 'bg-[#55BFA3]/15 text-[#55BFA3] border-[#55BFA3]/25'
+                              : 'bg-[#DDF4FA] text-[#1689C7] border-[#1689C7]/20'
                           }`}>
                             {project.category}
                           </span>
@@ -139,16 +139,16 @@ export const Projects: React.FC = () => {
 
                         {/* Title & Subtitle */}
                         <div>
-                          <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors font-heading">
+                          <h3 className="text-lg font-bold text-[#123B5D] group-hover:text-[#1689C7] transition-colors font-heading">
                             {project.title}
                           </h3>
-                          <p className="text-xs text-cyan-400 font-medium mt-0.5">
+                          <p className="text-xs text-[#1689C7] font-medium mt-0.5">
                             {project.subtitle}
                           </p>
                         </div>
 
                         {/* Short Description */}
-                        <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
+                        <p className="text-xs text-[#647C91] leading-relaxed line-clamp-3">
                           {project.description}
                         </p>
 
@@ -157,13 +157,13 @@ export const Projects: React.FC = () => {
                           {project.techStack.slice(0, 4).map((tech) => (
                             <span
                               key={tech}
-                              className="px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 text-[10px] font-medium text-slate-200"
+                              className="px-2.5 py-1 rounded-lg bg-[#FAF8F2] border border-[#D5E5EC] text-[10px] font-medium text-[#123B5D]"
                             >
                               {tech}
                             </span>
                           ))}
                           {project.techStack.length > 4 && (
-                            <span className="px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 text-[10px] font-medium text-slate-400">
+                            <span className="px-2.5 py-1 rounded-lg bg-[#FAF8F2] border border-[#D5E5EC] text-[10px] font-medium text-[#647C91]">
                               +{project.techStack.length - 4}
                             </span>
                           )}
@@ -172,10 +172,10 @@ export const Projects: React.FC = () => {
                       </div>
 
                       {/* Footer Action Buttons */}
-                      <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-2">
+                      <div className="pt-6 mt-6 border-t border-[#D5E5EC] flex items-center gap-2">
                         <button
                           onClick={() => setSelectedProject(project)}
-                          className="flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#6C63FF] to-[#00E5FF] text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+                          className="flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl bg-[#1689C7] hover:bg-[#1277ad] text-white font-semibold text-xs shadow-none transition-all duration-200 hover:scale-[1.02] cursor-pointer"
                         >
                           <span>Case Study</span>
                           <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export const Projects: React.FC = () => {
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 hover:text-white border border-white/10 text-xs font-bold transition-all cursor-pointer"
+                            className="p-2.5 rounded-xl bg-white hover:bg-[#DDF4FA] text-[#123B5D] border border-[#D5E5EC] text-xs font-bold transition-all cursor-pointer shadow-none"
                             title="GitHub Source Code"
                           >
                             <Github className="w-4 h-4" />
@@ -198,7 +198,7 @@ export const Projects: React.FC = () => {
                             href={project.demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-bold transition-all cursor-pointer"
+                            className="p-2.5 rounded-xl bg-[#DDF4FA] hover:bg-[#cdeef7] text-[#1689C7] border border-[#1689C7]/25 text-xs font-bold transition-all cursor-pointer shadow-none"
                             title="Live Demo"
                           >
                             <ExternalLink className="w-4 h-4" />
@@ -213,22 +213,22 @@ export const Projects: React.FC = () => {
             </div>
 
             {/* Embedded BI Callout Banner inside Projects */}
-            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-950 via-[#0a0f29] to-indigo-950/80 border border-white/15 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl overflow-hidden">
+            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#1689C7] via-[#219FD1] to-[#39BDEB] border border-[#39BDEB]/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs overflow-hidden text-white">
               <div className="space-y-2 text-center md:text-left relative z-10">
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                  <Sparkles className="w-4 h-4" />
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider font-heading">
+                  <Sparkles className="w-4 h-4 text-white" />
                   <span>Microsoft PL-300 Certified Analytics</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
                   Explore Interactive Power BI & IoT Telemetry Dashboards
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
+                <p className="text-xs sm:text-sm text-white/90 max-w-2xl">
                   Test live interactive slicers, sensor telemetry data, sentiment NLP keyword clusters, and DAX metric formulas right inside this portfolio.
                 </p>
               </div>
               <button
                 onClick={() => setViewMode('bi')}
-                className="shrink-0 relative z-10 flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] text-slate-950 font-extrabold text-xs shadow-xl shadow-cyan-500/25 transition-all hover:scale-105 cursor-pointer"
+                className="shrink-0 relative z-10 flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-[#FAF8F2] text-[#1689C7] font-bold text-xs shadow-none transition-all hover:scale-105 cursor-pointer"
               >
                 <BarChart3 className="w-4 h-4" />
                 <span>Launch BI Dashboard Sandbox</span>
@@ -254,3 +254,5 @@ export const Projects: React.FC = () => {
     </section>
   );
 };
+
+

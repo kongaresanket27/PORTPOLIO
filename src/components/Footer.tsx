@@ -21,27 +21,27 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTab }) => {
   ];
 
   return (
-    <footer className="relative border-t border-white/10 bg-[#050816]/80 backdrop-blur-xl py-12 text-slate-300 text-xs mt-auto z-20">
+    <footer className="relative border-t border-[#D9E3E8] bg-[#F7F8F3] py-12 text-[#617386] text-xs mt-auto z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#D9E3E8]">
           
           {/* Left Brand */}
           <div className="space-y-1.5 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#6C63FF] via-[#00E5FF] to-[#8B5CF6] p-0.5 shadow-md shadow-cyan-500/20">
-                <div className="w-full h-full bg-[#050816] rounded-[10px] flex items-center justify-center font-extrabold text-white text-xs font-heading">
+              <div className="w-8 h-8 rounded-xl bg-[#F0F4F4] border border-[#D9E3E8] p-0.5 shadow-none flex items-center justify-center">
+                <div className="w-full h-full bg-white rounded-[8px] flex items-center justify-center font-extrabold text-[#168AAD] text-xs font-heading">
                   SK
                 </div>
               </div>
-              <span className="font-extrabold text-white text-base tracking-tight font-heading">{contactInfo.name}</span>
+              <span className="font-extrabold text-[#16324F] text-base tracking-tight font-heading">{contactInfo.name}</span>
             </div>
-            <p className="text-slate-400 text-xs">
+            <p className="text-[#617386] text-xs">
               Computer Science Engineering Student • {contactInfo.institution}
             </p>
           </div>
 
           {/* Center Links */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-slate-300 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-[#617386] font-medium">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTab }) => {
                     scrollToTop();
                   }
                 }}
-                className="hover:text-cyan-400 transition-colors cursor-pointer"
+                className="hover:text-[#168AAD] transition-colors cursor-pointer"
               >
                 {item.label}
               </button>
@@ -62,20 +62,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTab }) => {
           {/* Right Scroll to Top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 border border-white/10 text-xs font-semibold transition-all cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-[#F0F4F4] text-[#16324F] border border-[#D9E3E8] text-xs font-semibold transition-all cursor-pointer shadow-none"
             aria-label="Scroll back to top"
           >
             <span>Back to Top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-cyan-400" />
+            <ArrowUp className="w-3.5 h-3.5 text-[#168AAD]" />
           </button>
 
         </div>
 
         {/* Copyright Notice */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-[11px] text-center sm:text-left">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#617386] text-[11px] text-center sm:text-left">
           <p>© {new Date().getFullYear()} Sanket Kanhaiya Kongare. All rights reserved.</p>
-          <p className="flex items-center gap-1 font-mono">
-            <span>Built with React 18, Framer Motion & Tailwind CSS</span>
+          <p className="flex items-center gap-1 font-mono text-[#617386]">
+            <span>Crafted with Clean Typography & Natural Palette</span>
           </p>
         </div>
 
@@ -83,3 +83,5 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTab }) => {
     </footer>
   );
 };
+
+
